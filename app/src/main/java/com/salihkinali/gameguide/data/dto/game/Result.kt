@@ -9,7 +9,7 @@ data class Result(
     @SerializedName("added_by_status")
     val addedByStatus: AddedByStatus?,
     @SerializedName("background_image")
-    val backgroundİmage: String?,
+    val backgroundImage: String?,
     @SerializedName("clip")
     val clip: Any?,
     @SerializedName("dominant_color")

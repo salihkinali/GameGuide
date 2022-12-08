@@ -18,7 +18,7 @@ class GameRepositoryImpl @Inject constructor(
     override suspend fun getTotalGameInfo(): NetworkResponse<TotalGameResponse> =
     withContext(ioDispatcher) {
         try {
-            remoteDataSource.getTopAnimeCharacters()
+            remoteDataSource.getTotalGameInfo()
         } catch (e: Exception) {
             NetworkResponse.Error(e)
         }
