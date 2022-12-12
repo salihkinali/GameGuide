@@ -18,7 +18,7 @@ class RemoteDataSourceImpl @Inject constructor(private val api: GameApi) : Remot
 
     override suspend fun getSingleCharacter(id: Long): NetworkResponse<SingleGameResponse> {
         return try {
-            val response = api.getSingleGameInfo(id,"2234")
+            val response = api.getSingleGameInfo(id)
             NetworkResponse.Success(response)
         }catch (e:Exception){
             NetworkResponse.Error(e)

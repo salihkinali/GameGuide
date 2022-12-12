@@ -16,9 +16,9 @@ abstract class GameRepositoryModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun provideRemoteDataSource(remoteDataSourceImpl: RemoteDataSourceImpl):RemoteDataSource
+    abstract fun bindRemoteDataSource(remoteDataSourceImpl: RemoteDataSourceImpl):RemoteDataSource
 
     @Binds
     @ViewModelScoped
-    abstract fun provideGameRepository(gameRepositoryImpl: GameRepositoryImpl):GameRepository
+    abstract fun bindGameRepository(gameRepositoryImpl: GameRepositoryImpl):GameRepository
 }

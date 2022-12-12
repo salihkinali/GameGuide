@@ -14,5 +14,5 @@ abstract class UseCaseModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun provideUseCase(gameUseCaseImpl: GetTotalGameUseCaseImpl):GetTotalGameUseCase
+    abstract fun bindTotalGameUseCase(gameUseCaseImpl: GetTotalGameUseCaseImpl):GetTotalGameUseCase
 }

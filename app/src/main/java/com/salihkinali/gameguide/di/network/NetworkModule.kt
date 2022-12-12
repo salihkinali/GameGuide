@@ -1,5 +1,6 @@
 package com.salihkinali.gameguide.di.network
 
+import com.salihkinali.gameguide.BuildConfig
 import com.salihkinali.gameguide.data.api.GameApi
 import dagger.Module
 import dagger.Provides
@@ -36,7 +37,7 @@ object NetworkModule {
     @ViewModelScoped
     fun provideGameApi(client: OkHttpClient): GameApi {
         return Retrofit.Builder()
-            .baseUrl("https://api.rawg.io/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

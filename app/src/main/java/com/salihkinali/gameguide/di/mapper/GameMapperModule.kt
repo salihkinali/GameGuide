@@ -2,8 +2,8 @@ package com.salihkinali.gameguide.di.mapper
 
 import com.salihkinali.gameguide.domain.entity.TotalGameEntity
 import com.salihkinali.gameguide.domain.mapper.GameListMapper
-import com.salihkinali.gameguide.domain.mapper.GameMapperImpl
 import com.salihkinali.gameguide.data.dto.game.Result
+import com.salihkinali.gameguide.domain.mapper.TotalEntityMapperImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,5 +16,6 @@ abstract class GameMapperModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun provideGameMapper(gameMapperImpl: GameMapperImpl):GameListMapper<Result,TotalGameEntity>
+    abstract fun bindGameMapper(totalEntityMapperImpl: TotalEntityMapperImpl):GameListMapper<Result,TotalGameEntity>
+
 }
