@@ -3,7 +3,9 @@ package com.salihkinali.gameguide.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.salihkinali.gameguide.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
