@@ -9,7 +9,7 @@ import javax.inject.Inject
 class RemoteDataSourceImpl @Inject constructor(private val api: GameApi) : RemoteDataSource {
         override suspend fun getTotalGameInfo(): NetworkResponse<TotalGameResponse> {
             return try {
-                val response = api.getTotalGameInfo("2234")
+                val response = api.getTotalGameInfo()
                 NetworkResponse.Success(response)
             } catch (e: Exception) {
                 NetworkResponse.Error(e)

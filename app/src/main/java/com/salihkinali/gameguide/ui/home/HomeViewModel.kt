@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(
 
     fun getData() {
         viewModelScope.launch {
-            gameUseCase.invoke().onEach {
+            gameUseCase.invoke().collect() {
                 when (it) {
                     is NetworkResponse.Error -> {
                         _homeUiData.postValue(UiState.Error(R.string.error_message))

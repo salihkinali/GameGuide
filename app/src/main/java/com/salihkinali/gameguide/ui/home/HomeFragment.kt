@@ -26,19 +26,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observerDataChanged()
+        observeUiData()
     }
 
-    private fun observerDataChanged() {
+    private fun observeUiData() {
         viewModel.homeUidata.observe(viewLifecycleOwner) {
             when (it) {
                 is UiState.Error -> Log.e("Hatalı","Veriler eksik geliyor")
-                UiState.Loading -> println("veriler load haldedir.")
-                is UiState.Success -> {
-                    it.data.forEach {
-                        Log.e("${it.name}","${it.backgroundImage}")
-                    }
-                }
+                is UiState.Loading -> println("veriler load haldedir.")
+                is UiState.Success -> { binding?.textMessage?.text = it.data.toString() }
             }
         }
     }
