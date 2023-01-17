@@ -1,5 +1,6 @@
 package com.salihkinali.gameguide.ui.base
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,5 +14,14 @@ abstract class BaseRecyclerAdapter<T : Any, VH : BaseViewHolder<T>> : RecyclerVi
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(games[position])
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateGames(games: MutableList<T>) {
+        games.apply {
+            clear()
+            addAll(games)
+            notifyDataSetChanged()
+        }
     }
 }
