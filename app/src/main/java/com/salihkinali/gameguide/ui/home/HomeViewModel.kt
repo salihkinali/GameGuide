@@ -10,7 +10,6 @@ import com.salihkinali.gameguide.domain.entity.TotalGameEntity
 import com.salihkinali.gameguide.domain.mapper.GameListMapper
 import com.salihkinali.gameguide.domain.usecase.GetTotalGameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -34,7 +33,7 @@ class HomeViewModel @Inject constructor(
                     is NetworkResponse.Error -> {
                         _homeUiData.postValue(UiState.Error(R.string.error_message))
                     }
-                    NetworkResponse.Loading -> (UiState.Loading)
+                    is NetworkResponse.Loading -> (UiState.Loading)
 
                     is NetworkResponse.Success -> {
                         _homeUiData.postValue(UiState.Success(gameListMapper.map(it.result)))
