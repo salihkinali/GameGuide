@@ -7,12 +7,18 @@
     tools:context=".ui.home.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/GamesRecylerview"
+        android:id="@+id/gamesRecylerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         tools:listitem="@layout/adapter_list_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
     <ProgressBar
         android:id="@+id/progressBar"

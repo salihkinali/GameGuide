@@ -17,7 +17,7 @@ abstract class BaseRecyclerAdapter<T : Any, VH : BaseViewHolder<T>> : RecyclerVi
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateGames(games: MutableList<T>) {
+    fun updateGames(gameList: List<T>) {
         games.apply {
             clear()
             addAll(games)

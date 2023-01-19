@@ -19,7 +19,8 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/gameImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -33,6 +34,7 @@
             android:id="@+id/gameTitle"
             android:layout_width="match_parent"
             tools:background="@color/black"
+            android:textSize="16sp"
             android:layout_height="wrap_content"
             android:layout_gravity="top" />
 

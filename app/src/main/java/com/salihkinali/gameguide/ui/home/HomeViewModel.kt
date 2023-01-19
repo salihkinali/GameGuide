@@ -1,10 +1,10 @@
 package com.salihkinali.gameguide.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.salihkinali.gameguide.R
 import com.salihkinali.gameguide.data.NetworkResponse
 import com.salihkinali.gameguide.domain.entity.TotalGameEntity
 import com.salihkinali.gameguide.domain.mapper.GameListMapper
@@ -31,7 +31,8 @@ class HomeViewModel @Inject constructor(
             gameUseCase.invoke().collect() {
                 when (it) {
                     is NetworkResponse.Error -> {
-                        _homeUiData.postValue(UiState.Error(R.string.error_message))
+                        Log.e("hata mesajı ", it.exception.toString())
+                        //_homeUiData.postValue(UiState.Error(R.string.error_message))
                     }
                     is NetworkResponse.Loading -> (UiState.Loading)
 
