@@ -2,7 +2,7 @@ package com.salihkinali.gameguide.domain.usecase
 
 import com.salihkinali.gameguide.data.NetworkResponse
 import com.salihkinali.gameguide.data.dto.game.Result
-import com.salihkinali.gameguide.data.repository.GameRepository
+import com.salihkinali.gameguide.domain.repository.GameRepository
 import com.salihkinali.gameguide.domain.entity.TotalGameEntity
 import com.salihkinali.gameguide.domain.mapper.GameListMapper
 import kotlinx.coroutines.flow.Flow

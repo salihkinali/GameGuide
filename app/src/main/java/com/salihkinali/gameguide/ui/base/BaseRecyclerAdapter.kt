@@ -4,24 +4,27 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseRecyclerAdapter<T : Any, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
+abstract class BaseRecyclerAdapter<T : Any, VH : BaseViewHolder<T>> :
+    RecyclerView.Adapter<VH>() {
 
-    private val games = mutableListOf<T>()
-
-    abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH
-
-    override fun getItemCount(): Int = games.size
-
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(games[position])
-    }
+    private val items = mutableListOf<T>()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateGames(gameList: List<T>) {
-        games.apply {
+    fun updateItems(newItems: List<T>) {
+        items.apply {
             clear()
-            addAll(games)
+            addAll(newItems)
             notifyDataSetChanged()
         }
     }
+
+    fun getItem(position: Int) = items[position]
+
+    abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        holder.onBind(items[position])
+    }
+
+    override fun getItemCount() = items.size
 }

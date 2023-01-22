@@ -5,6 +5,7 @@ import com.salihkinali.gameguide.data.dto.detail.SingleGameResponse
 import com.salihkinali.gameguide.data.dto.game.TotalGameResponse
 import com.salihkinali.gameguide.data.source.RemoteDataSource
 import com.salihkinali.gameguide.di.coroutine.IoDispatcher
+import com.salihkinali.gameguide.domain.repository.GameRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

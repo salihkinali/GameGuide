@@ -15,7 +15,7 @@ class GameViewHolder(private val binding: AdapterListItemBinding) :
         }
     }
 
-    override fun bind(data: TotalGameUiData) {
+    override fun onBind(data: TotalGameUiData) {
         binding.apply {
             gameTitle.text = data.name
             gameImage.downloadImage(data.backgroundImage)

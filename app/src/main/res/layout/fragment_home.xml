@@ -11,20 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
         tools:listitem="@layout/adapter_list_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.salihkinali.gameguide.data.repository
+package com.salihkinali.gameguide.domain.repository
 
 import com.salihkinali.gameguide.data.NetworkResponse
 import com.salihkinali.gameguide.data.dto.detail.SingleGameResponse
