@@ -1,10 +1,11 @@
 package com.salihkinali.gameguide.domain.repository
 
 import com.salihkinali.gameguide.data.NetworkResponse
-import com.salihkinali.gameguide.data.dto.detail.SingleGameResponse
-import com.salihkinali.gameguide.data.dto.game.TotalGameResponse
+import com.salihkinali.gameguide.domain.entity.SingleGameEntity
+import com.salihkinali.gameguide.domain.entity.TotalGameEntity
+
 
 interface GameRepository {
-    suspend fun getTotalGameInfo(): NetworkResponse<TotalGameResponse>
-    suspend fun getSingleGameInfo(id: Long): NetworkResponse<SingleGameResponse>
+    suspend fun getTotalGameInfo(): NetworkResponse<List<TotalGameEntity>>
+    suspend fun getSingleGameInfo(id: Long):NetworkResponse<SingleGameEntity>
 }

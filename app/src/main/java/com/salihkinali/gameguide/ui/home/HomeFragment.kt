@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeUiData() {
+
         lifecycleScope.launchWhenResumed {
 
             viewModel.homeUidata.collect {

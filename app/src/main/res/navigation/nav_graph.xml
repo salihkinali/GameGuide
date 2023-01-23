@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.salihkinali.gameguide.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_toDetailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.salihkinali.gameguide.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="gameId"
+            app:argType="long" />
+    </fragment>
 </navigation>

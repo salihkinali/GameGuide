@@ -15,9 +15,9 @@ data class SingleGameResponse(
     @SerializedName("alternative_names")
     val alternativeNames: List<String>?,
     @SerializedName("background_image")
-    val backgroundİmage: String?,
+    val backgroundImage: String?,
     @SerializedName("background_image_additional")
-    val backgroundİmageAdditional: String?,
+    val backgroundImageAdditional: String?,
     @SerializedName("clip")
     val clip: Any?,
     @SerializedName("creators_count")

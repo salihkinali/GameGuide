@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.salihkinali.gameguide.R
 import com.salihkinali.gameguide.data.NetworkResponse
 import com.salihkinali.gameguide.domain.entity.TotalGameEntity
-import com.salihkinali.gameguide.domain.mapper.GameListMapper
+import com.salihkinali.gameguide.data.mapper.GameListMapper
 import com.salihkinali.gameguide.domain.usecase.GetTotalGameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

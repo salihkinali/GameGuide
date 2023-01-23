@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="0.75"
+        android:layout_marginEnd="5dp"
         app:cardCornerRadius="10dp">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -27,16 +28,35 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:layout_weight="0.25"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/gameTitle"
             android:layout_width="match_parent"
-            tools:background="@color/black"
+            tools:text="Game Title"
             android:textSize="16sp"
             android:layout_height="wrap_content"
-            android:layout_gravity="top" />
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gameRatingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            tools:text="Rating: " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gameReleasedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            tools:text="Released: " />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

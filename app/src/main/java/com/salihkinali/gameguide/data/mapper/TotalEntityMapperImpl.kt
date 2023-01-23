@@ -1,4 +1,4 @@
-package com.salihkinali.gameguide.domain.mapper
+package com.salihkinali.gameguide.data.mapper
 
 import com.salihkinali.gameguide.data.dto.game.Result
 import com.salihkinali.gameguide.domain.entity.TotalGameEntity

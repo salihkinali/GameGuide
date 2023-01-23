@@ -1,5 +1,6 @@
 package com.salihkinali.gameguide.ui.home
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import com.salihkinali.gameguide.databinding.AdapterListItemBinding
 import com.salihkinali.gameguide.ui.base.BaseViewHolder
@@ -15,10 +16,14 @@ class GameViewHolder(private val binding: AdapterListItemBinding) :
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBind(data: TotalGameUiData) {
         binding.apply {
             gameTitle.text = data.name
             gameImage.downloadImage(data.backgroundImage)
+            gameRatingText.text = "Rating: ${data.rating}"
+            gameReleasedText.text = "Released: ${data.released}"
         }
     }
+
 }

@@ -1,5 +1,7 @@
 package com.salihkinali.gameguide.di.usecase
 
+import com.salihkinali.gameguide.domain.usecase.GetSingleGameUseCase
+import com.salihkinali.gameguide.domain.usecase.GetSingleGameUseCaseImpl
 import com.salihkinali.gameguide.domain.usecase.GetTotalGameUseCase
 import com.salihkinali.gameguide.domain.usecase.GetTotalGameUseCaseImpl
 import dagger.Binds
@@ -15,4 +17,8 @@ abstract class UseCaseModule {
     @Binds
     @ViewModelScoped
     abstract fun bindTotalGameUseCase(gameUseCaseImpl: GetTotalGameUseCaseImpl):GetTotalGameUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindSingleGameUseCase(singleGameUseCase: GetSingleGameUseCaseImpl):GetSingleGameUseCase
 }
