@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetSingleGameUseCase {
 
-    operator fun invoke(id: Long): Flow<NetworkResponse<SingleGameEntity>>
+    operator fun invoke(id: Int): Flow<NetworkResponse<SingleGameEntity>>
 
 }

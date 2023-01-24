@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetSingleGameUseCaseImpl @Inject constructor(
     private val repository: GameRepository,
 ) : GetSingleGameUseCase {
-    override fun invoke(id:Long): Flow<NetworkResponse<SingleGameEntity>> = flow {
+    override fun invoke(id:Int): Flow<NetworkResponse<SingleGameEntity>> = flow {
 
         emit(NetworkResponse.Loading)
         emit(repository.getSingleGameInfo(id))

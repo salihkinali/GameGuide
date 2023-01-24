@@ -13,5 +13,5 @@ interface GameApi {
     suspend fun getTotalGameInfo(@Query("key") key: String = BuildConfig.API_KEY): TotalGameResponse
 
     @GET("api/games/{id}/")
-    suspend fun getSingleGameInfo(@Path("id") id: Long, @Query("key") key: String=BuildConfig.API_KEY): SingleGameResponse
+    suspend fun getSingleGameInfo(@Path("id") id: Int, @Query("key") key: String=BuildConfig.API_KEY): SingleGameResponse
 }

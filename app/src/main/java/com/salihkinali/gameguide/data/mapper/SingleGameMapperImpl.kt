@@ -8,13 +8,13 @@ class SingleGameMapperImpl @Inject constructor() :
     GameMapper<SingleGameResponse, SingleGameEntity> {
     override fun map(input: SingleGameResponse): SingleGameEntity {
         return SingleGameEntity(
-            id = input.id!!.toLong(),
-            name = input.name!!,
-            released = input.released!!,
-            backgroundImage = input.backgroundImage!!,
-            description = input.descriptionRaw!!,
-            website = input.website!!,
-            ratingTop = input.ratingTop!!
+            id = input.id ?: 0,
+            name = input.name.orEmpty(),
+            released = input.released.orEmpty(),
+            backgroundImage = input.backgroundImage.orEmpty(),
+            description = input.descriptionRaw.orEmpty(),
+            website = input.website.orEmpty(),
+            ratingTop = input.ratingTop ?: 0
         )
     }
 }

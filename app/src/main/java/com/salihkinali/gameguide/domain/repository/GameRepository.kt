@@ -7,5 +7,5 @@ import com.salihkinali.gameguide.domain.entity.TotalGameEntity
 
 interface GameRepository {
     suspend fun getTotalGameInfo(): NetworkResponse<List<TotalGameEntity>>
-    suspend fun getSingleGameInfo(id: Long):NetworkResponse<SingleGameEntity>
+    suspend fun getSingleGameInfo(id: Int):NetworkResponse<SingleGameEntity>
 }

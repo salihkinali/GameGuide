@@ -35,8 +35,9 @@ class GameRepositoryImpl @Inject constructor(
             }
         }
 
-    override suspend fun getSingleGameInfo(id: Long): NetworkResponse<SingleGameEntity> =
+    override suspend fun getSingleGameInfo(id: Int): NetworkResponse<SingleGameEntity> =
         withContext(ioDispatcher) {
+
             when (val response = remoteDataSource.getSingleCharacter(id)) {
 
                  NetworkResponse.Loading -> NetworkResponse.Loading
@@ -45,5 +46,4 @@ class GameRepositoryImpl @Inject constructor(
 
             }
         }
-
 }

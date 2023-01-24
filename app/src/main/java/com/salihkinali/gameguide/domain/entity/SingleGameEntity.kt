@@ -1,7 +1,7 @@
 package com.salihkinali.gameguide.domain.entity
 
 data class SingleGameEntity(
-    val id: Long,
+    val id: Int,
     val name: String,
     val released: String,
     val backgroundImage: String,
