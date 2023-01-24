@@ -3,9 +3,11 @@ package com.salihkinali.gameguide.ui.home
 import android.view.ViewGroup
 import com.salihkinali.gameguide.ui.base.BaseRecyclerAdapter
 
-class HomeAdapter : BaseRecyclerAdapter<TotalGameUiData, GameViewHolder>() {
-     val itemClickListener: TotalGameUiData? = null
+class HomeAdapter(private val itemClickListener: ((Int) -> Unit)?) : BaseRecyclerAdapter<TotalGameUiData, GameViewHolder>() {
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
-        return GameViewHolder.createFrom(parent)
+        return GameViewHolder.createFrom(parent,itemClickListener)
     }
 }

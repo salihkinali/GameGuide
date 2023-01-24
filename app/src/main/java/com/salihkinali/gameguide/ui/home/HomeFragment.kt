@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val adapter by lazy { HomeAdapter() }
+    private val adapter by lazy { HomeAdapter(::showToastMessage) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeUiData()
         handledata()
+
     }
 
     private fun handledata() {
@@ -67,9 +68,17 @@ class HomeFragment : Fragment() {
         adapter.updateItems(data)
     }
 
+    private fun showToastMessage(l: Int) {
+        Toast.makeText(requireContext(),
+            "Text Sayısı $l",
+            Toast.LENGTH_SHORT).show()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
 }
+
+

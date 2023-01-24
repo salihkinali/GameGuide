@@ -7,12 +7,12 @@ import com.salihkinali.gameguide.ui.base.BaseViewHolder
 import com.salihkinali.gameguide.utility.downloadImage
 import com.salihkinali.gameguide.utility.inflateBinding
 
-class GameViewHolder(private val binding: AdapterListItemBinding) :
+class GameViewHolder(private val binding: AdapterListItemBinding, private val itemClick: ((Int) -> Unit)?) :
     BaseViewHolder<TotalGameUiData>(binding.root) {
 
     companion object {
-        fun createFrom(parent: ViewGroup): GameViewHolder {
-            return GameViewHolder(parent.inflateBinding(AdapterListItemBinding::inflate))
+        fun createFrom(parent: ViewGroup, itemClickListener: ((Int) -> Unit)?): GameViewHolder {
+            return GameViewHolder(parent.inflateBinding(AdapterListItemBinding::inflate),itemClickListener)
         }
     }
 
@@ -23,6 +23,7 @@ class GameViewHolder(private val binding: AdapterListItemBinding) :
             gameImage.downloadImage(data.backgroundImage)
             gameRatingText.text = "Rating: ${data.rating}"
             gameReleasedText.text = "Released: ${data.released}"
+            itemBody.setOnClickListener { itemClick?.invoke(data.id) }
         }
     }
 

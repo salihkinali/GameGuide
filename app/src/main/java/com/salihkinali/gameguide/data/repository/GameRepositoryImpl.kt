@@ -25,6 +25,7 @@ class GameRepositoryImpl @Inject constructor(
 
         withContext(ioDispatcher) {
             when (val response = remoteDataSource.getTotalGameInfo()) {
+
                 is NetworkResponse.Success -> {
                     NetworkResponse.Success(gameListMapper.map(response.result))
                 }

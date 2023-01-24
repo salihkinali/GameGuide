@@ -9,6 +9,7 @@ class TotalGameUiDataImpl @Inject constructor() :
     override fun map(input: List<TotalGameEntity>?): List<TotalGameUiData> {
         return input?.map {
             TotalGameUiData(
+                id = it.id,
                 name = it.name,
                 rating = it.rating,
                 released = it.released,
