@@ -8,6 +8,8 @@ import com.salihkinali.gameguide.data.mapper.GameMapper
 import com.salihkinali.gameguide.data.mapper.SingleGameMapperImpl
 import com.salihkinali.gameguide.data.mapper.TotalEntityMapperImpl
 import com.salihkinali.gameguide.domain.entity.SingleGameEntity
+import com.salihkinali.gameguide.ui.detail.SingleGameUiData
+import com.salihkinali.gameguide.ui.detail.SingleGameUiDataImpl
 import com.salihkinali.gameguide.ui.home.TotalGameUiData
 import com.salihkinali.gameguide.ui.home.TotalGameUiDataImpl
 import dagger.Binds
@@ -27,6 +29,10 @@ abstract class GameMapperModule {
     @Binds
     @ViewModelScoped
     abstract fun bindSingleMapper(singleMapperImpl: SingleGameMapperImpl): GameMapper<SingleGameResponse, SingleGameEntity>
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindSingleUiMapper(singleGameUiDataImpl: SingleGameUiDataImpl): GameMapper<SingleGameEntity, SingleGameUiData>
 
     @Binds
     @ViewModelScoped

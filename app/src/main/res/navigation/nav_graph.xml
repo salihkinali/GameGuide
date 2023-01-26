@@ -21,6 +21,6 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="gameId"
-            app:argType="long" />
+            app:argType="integer" />
     </fragment>
 </navigation>
