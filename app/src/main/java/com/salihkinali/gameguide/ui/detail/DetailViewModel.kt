@@ -1,7 +1,5 @@
 package com.salihkinali.gameguide.ui.detail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.salihkinali.gameguide.R
@@ -16,6 +14,7 @@ import com.salihkinali.gameguide.ui.common.UiResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,13 +31,11 @@ class DetailViewModel @Inject constructor(
         MutableStateFlow<UiResponseState<SingleGameUiData>>(UiResponseState.Loading)
     val detailUiData: StateFlow<UiResponseState<SingleGameUiData>> get() = _detailUiData
 
-   /* private val _detailScreenShot =
-        MutableStateFlow<UiResponseState<List<GameScreenShotUiData>>>(UiResponseState.Loading)
-    val detailScreenShot = _detailScreenShot.asStateFlow()*/
-
     private val _detailScreenShot =
-        MutableLiveData<UiResponseState<List<GameScreenShotUiData>>>()
-    val detailScreenShot: LiveData<UiResponseState<List<GameScreenShotUiData>>> = _detailScreenShot
+        MutableStateFlow<UiResponseState<List<GameScreenShotUiData>>>(UiResponseState.Loading)
+    val detailScreenShot = _detailScreenShot.asStateFlow()
+
+
 
 
     fun getDataFromSource(id: Int) {
@@ -62,12 +59,12 @@ class DetailViewModel @Inject constructor(
                 when (it) {
 
                     is NetworkResponse.Error -> {
-                        _detailScreenShot.postValue(UiResponseState.Error(R.string.error_message))
+                        _detailScreenShot.emit(UiResponseState.Error(R.string.error_message))
                     }
-                    is NetworkResponse.Loading -> _detailScreenShot.postValue(UiResponseState.Loading)
+                    is NetworkResponse.Loading -> _detailScreenShot.emit(UiResponseState.Loading)
 
                     is NetworkResponse.Success -> {
-                        _detailScreenShot.postValue(UiResponseState.Success(gameMapper(it.result)))
+                        _detailScreenShot.emit(UiResponseState.Success(gameMapper(it.result)))
                     }
                 }
             }

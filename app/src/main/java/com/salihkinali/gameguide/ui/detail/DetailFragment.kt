@@ -48,7 +48,6 @@ class DetailFragment : Fragment() {
 
     private fun showData() {
         lifecycleScope.launchWhenResumed {
-
             // This is Detail Page
             viewModel.detailUiData.collectLatest {
                 when (it) {
@@ -67,9 +66,11 @@ class DetailFragment : Fragment() {
                     }
                 }
             }
+        }
+        lifecycleScope.launchWhenResumed {
 
             // This is Game ScreenShot information
-            viewModel.detailScreenShot.observe(viewLifecycleOwner) {
+            viewModel.detailScreenShot.collectLatest {
                 when (it) {
                     is UiResponseState.Error -> {
                         binding.detailProgressBar.visible(false)
