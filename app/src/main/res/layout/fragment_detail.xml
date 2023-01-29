@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,11 +9,18 @@
     tools:context=".ui.detail.DetailFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/detailImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         android:layout_weight="0.6"
-        android:layout_margin="5dp"
         tools:background="@color/black" />
+
+    <ProgressBar
+        android:id="@+id/detailProgressBar"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,6 +38,8 @@
                 android:id="@+id/gameNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 tools:text="Game Name" />
 
@@ -48,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 tools:text="Rating Number:" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>

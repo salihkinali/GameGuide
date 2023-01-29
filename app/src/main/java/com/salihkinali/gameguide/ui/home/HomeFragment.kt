@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.salihkinali.gameguide.databinding.FragmentHomeBinding
 import com.salihkinali.gameguide.utility.visible
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +19,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val adapter by lazy { HomeAdapter(::showToastMessage) }
+    private val adapter by lazy { HomeAdapter(::passDataId) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,10 +69,9 @@ class HomeFragment : Fragment() {
         adapter.updateItems(data)
     }
 
-    private fun showToastMessage(l: Int) {
-        Toast.makeText(requireContext(),
-            "Text Sayısı $l",
-            Toast.LENGTH_SHORT).show()
+    private fun passDataId(dataId: Int) {
+        val action = HomeFragmentDirections.homeToDetailFragment(dataId)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

@@ -30,7 +30,7 @@ class DetailViewModel @Inject constructor(
         viewModelScope.launch {
             singleGameUseCase.invoke(id).collectLatest {
 
-                // Burada Kaldım.
+
                 when (it) {
                     is NetworkResponse.Error -> {
                         _detailUiData.emit(UiResponseState.Error(R.string.error_message))
@@ -38,7 +38,7 @@ class DetailViewModel @Inject constructor(
                     is NetworkResponse.Loading -> _detailUiData.emit(UiResponseState.Loading)
 
                     is NetworkResponse.Success -> {
-
+                      _detailUiData.emit(UiResponseState.Success(singleGameMapper.map(it.result)))
                     }
                 }
             }
