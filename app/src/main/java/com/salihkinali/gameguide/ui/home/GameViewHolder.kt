@@ -26,5 +26,4 @@ class GameViewHolder(private val binding: AdapterListItemBinding, private val it
             itemBody.setOnClickListener { itemClick?.invoke(data.id) }
         }
     }
-
 }

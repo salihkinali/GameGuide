@@ -1,11 +1,16 @@
 package com.salihkinali.gameguide.ui.detail
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.salihkinali.gameguide.R
 import com.salihkinali.gameguide.data.NetworkResponse
+import com.salihkinali.gameguide.data.mapper.GameListMapper
 import com.salihkinali.gameguide.data.mapper.GameMapper
+import com.salihkinali.gameguide.domain.entity.GameScreenShotEntity
 import com.salihkinali.gameguide.domain.entity.SingleGameEntity
+import com.salihkinali.gameguide.domain.usecase.GetGameScreenShotUseCase
 import com.salihkinali.gameguide.domain.usecase.GetSingleGameUseCase
 import com.salihkinali.gameguide.ui.common.UiResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +23,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val singleGameUseCase: GetSingleGameUseCase,
+    private val gameScreenShotUseCase: GetGameScreenShotUseCase,
+    private val gameScreenShotUiMapper: GameListMapper<GameScreenShotEntity, GameScreenShotUiData>,
     private val singleGameMapper: GameMapper<SingleGameEntity, SingleGameUiData>
 ) : ViewModel() {
 
@@ -25,11 +32,19 @@ class DetailViewModel @Inject constructor(
         MutableStateFlow<UiResponseState<SingleGameUiData>>(UiResponseState.Loading)
     val detailUiData: StateFlow<UiResponseState<SingleGameUiData>> get() = _detailUiData
 
+   /* private val _detailScreenShot =
+        MutableStateFlow<UiResponseState<List<GameScreenShotUiData>>>(UiResponseState.Loading)
+    val detailScreenShot = _detailScreenShot.asStateFlow()*/
+
+    private val _detailScreenShot =
+        MutableLiveData<UiResponseState<List<GameScreenShotUiData>>>()
+    val detailScreenShot: LiveData<UiResponseState<List<GameScreenShotUiData>>> = _detailScreenShot
+
 
     fun getDataFromSource(id: Int) {
         viewModelScope.launch {
-            singleGameUseCase.invoke(id).collectLatest {
 
+            singleGameUseCase.invoke(id).collectLatest {
 
                 when (it) {
                     is NetworkResponse.Error -> {
@@ -38,11 +53,29 @@ class DetailViewModel @Inject constructor(
                     is NetworkResponse.Loading -> _detailUiData.emit(UiResponseState.Loading)
 
                     is NetworkResponse.Success -> {
-                      _detailUiData.emit(UiResponseState.Success(singleGameMapper.map(it.result)))
+                        _detailUiData.emit(UiResponseState.Success(singleGameMapper.map(it.result)))
+                    }
+                }
+            }
+
+            gameScreenShotUseCase.invoke(id).collectLatest {
+                when (it) {
+
+                    is NetworkResponse.Error -> {
+                        _detailScreenShot.postValue(UiResponseState.Error(R.string.error_message))
+                    }
+                    is NetworkResponse.Loading -> _detailScreenShot.postValue(UiResponseState.Loading)
+
+                    is NetworkResponse.Success -> {
+                        _detailScreenShot.postValue(UiResponseState.Success(gameMapper(it.result)))
                     }
                 }
             }
         }
+    }
+
+    private fun gameMapper(list: List<GameScreenShotEntity>): List<GameScreenShotUiData> {
+        return gameScreenShotUiMapper.map(list)
     }
 }
 

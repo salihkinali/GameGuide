@@ -17,12 +17,14 @@ import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
-   private var _binding: FragmentDetailBinding? = null
+    private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: DetailViewModel by viewModels()
 
     private val args: DetailFragmentArgs by navArgs()
+
+    private val adapter by lazy { DetailScreenShotAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,22 +38,60 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getDataFromSource(args.gameId)
+        setGameScreenShot()
         showData()
+    }
+
+    private fun setGameScreenShot() {
+        binding.gameScreenShotRecylerView.adapter = adapter
     }
 
     private fun showData() {
         lifecycleScope.launchWhenResumed {
+
+            // This is Detail Page
             viewModel.detailUiData.collectLatest {
-                when(it){
-                    is UiResponseState.Error -> binding.detailProgressBar.visible(false)
-                    UiResponseState.Loading -> binding.detailProgressBar.visible(true)
+                when (it) {
+                    is UiResponseState.Error -> {
+                        binding.detailProgressBar.visible(false)
+                        binding.gameScreenShotText.visible(false)
+                    }
+
+                    UiResponseState.Loading -> {
+                        binding.detailProgressBar.visible(true)
+                        binding.gameScreenShotText.visible(false)
+                    }
                     is UiResponseState.Success -> {
                         binding.detailProgressBar.visible(false)
                         showDetailInformation(it.data)
                     }
                 }
             }
+
+            // This is Game ScreenShot information
+            viewModel.detailScreenShot.observe(viewLifecycleOwner) {
+                when (it) {
+                    is UiResponseState.Error -> {
+                        binding.detailProgressBar.visible(false)
+                        binding.gameScreenShotText.visible(false)
+                    }
+                    UiResponseState.Loading -> {
+                        binding.detailProgressBar.visible(true)
+                        binding.gameScreenShotText.visible(false)
+                    }
+
+                    is UiResponseState.Success -> {
+                        binding.detailProgressBar.visible(false)
+                        binding.gameScreenShotText.visible(true)
+                        showScreenShot(it.data)
+                    }
+                }
+            }
         }
+    }
+
+    private fun showScreenShot(data: List<GameScreenShotUiData>) {
+        adapter.updateItems(data)
     }
 
     private fun showDetailInformation(data: SingleGameUiData) {

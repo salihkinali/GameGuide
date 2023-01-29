@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Game Guide</string>
     <string name="error_message">This is error message. </string>
+    <string name="game_screenshots">Game Screenshots</string>
 </resources>

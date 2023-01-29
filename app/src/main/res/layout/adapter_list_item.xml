@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:id="@+id/itemBody"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/teal_200"
-    android:orientation="horizontal"
-    android:padding="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="10dp"
     android:layout_margin="5dp">
-
-    <com.google.android.material.card.MaterialCardView
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/itemBody"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="0.75"
-        android:layout_marginEnd="5dp"
-        app:cardCornerRadius="10dp">
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#0E97A9"
+        android:padding="5dp"
+        android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/gameImage"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_weight="0.70"
+            android:layout_marginEnd="5dp"
+            app:cardCornerRadius="10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/gameImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
+            android:layout_gravity="center"
+            android:layout_weight="0.30"
+            android:orientation="vertical">
 
-    </com.google.android.material.card.MaterialCardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/gameTitle"
+                android:layout_width="match_parent"
+                tools:text="Game Title"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_weight="0.25"
-        android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/gameRatingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                tools:text="Rating: " />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/gameTitle"
-            android:layout_width="match_parent"
-            tools:text="Game Title"
-            android:textSize="16sp"
-            android:layout_height="wrap_content"
-            />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/gameReleasedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                tools:text="Released: " />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/gameRatingText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="5dp"
-            android:textSize="16sp"
-            tools:text="Rating: " />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/gameReleasedText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="5dp"
-            android:textSize="16sp"
-            tools:text="Released: " />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>

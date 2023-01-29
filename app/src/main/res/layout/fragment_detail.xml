@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".ui.detail.DetailFragment">
@@ -50,6 +51,24 @@
                 android:layout_marginTop="10dp"
                 android:textSize="18sp"
                 tools:text="Game Description Lorem ıpisaa a adsasfdsf sddfsdfgdsf fgdfs dfsdfsdfsd sdfsd f" />
+
+
+            <TextView
+                android:id="@+id/gameScreenShotText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/game_screenshots"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gameScreenShotRecylerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/app_screenshots_item" />
 
             <TextView
                 android:id="@+id/releasedText"
