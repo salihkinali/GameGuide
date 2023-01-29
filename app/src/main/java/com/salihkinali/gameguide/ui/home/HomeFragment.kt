@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.salihkinali.gameguide.databinding.FragmentHomeBinding
+import com.salihkinali.gameguide.ui.common.UiResponseState
 import com.salihkinali.gameguide.utility.visible
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,7 +47,7 @@ class HomeFragment : Fragment() {
 
             viewModel.homeUidata.collect {
                 when (it) {
-                    is UiState.Error -> {
+                    is UiResponseState.Error -> {
                         Toast.makeText(
                             requireContext(),
                             "This is error message.",
@@ -54,9 +55,9 @@ class HomeFragment : Fragment() {
                         ).show()
                         binding.progressBar.visible(false)
                     }
-                    is UiState.Loading -> binding.progressBar.visible(true)
+                    is UiResponseState.Loading -> binding.progressBar.visible(true)
 
-                    is UiState.Success -> {
+                    is UiResponseState.Success -> {
                         binding.progressBar.visible(false)
                         loadDataToAdapter(it.data)
                     }
