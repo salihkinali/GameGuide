@@ -1,6 +1,6 @@
 package com.salihkinali.data.di.network
 
-import com.salihkinali.data.BASE_URL
+import com.salihkinali.data.BuildConfig
 import com.salihkinali.data.api.GameApi
 import dagger.Module
 import dagger.Provides
@@ -37,7 +37,7 @@ object NetworkModule {
     @ViewModelScoped
     fun provideGameApi(client: OkHttpClient): GameApi {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
