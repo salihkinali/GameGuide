@@ -9,9 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.salihkinali.gameguide.databinding.FragmentDetailBinding
-import com.salihkinali.gameguide.ui.common.UiResponseState
-import com.salihkinali.gameguide.utility.downloadImage
-import com.salihkinali.gameguide.utility.visible
+import com.salihkinali.ui.common.UiResponseState
+import com.salihkinali.ui.extension.downloadImage
+import com.salihkinali.ui.extension.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

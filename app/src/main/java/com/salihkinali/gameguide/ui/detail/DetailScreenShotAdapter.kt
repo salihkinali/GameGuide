@@ -1,7 +1,7 @@
 package com.salihkinali.gameguide.ui.detail
 
 import android.view.ViewGroup
-import com.salihkinali.gameguide.ui.base.BaseRecyclerAdapter
+import com.salihkinali.ui.base.BaseRecyclerAdapter
 
 class DetailScreenShotAdapter:
     BaseRecyclerAdapter<GameScreenShotUiData, GameScreenShotViewHolder>() {

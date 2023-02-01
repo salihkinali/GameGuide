@@ -1,7 +1,7 @@
 package com.salihkinali.gameguide.ui.home
 
-import com.salihkinali.gameguide.domain.entity.TotalGameEntity
-import com.salihkinali.gameguide.data.mapper.GameListMapper
+import com.salihkinali.domain.entity.TotalGameEntity
+import com.salihkinali.common.mapper.GameListMapper
 import javax.inject.Inject
 
 class TotalGameUiMapperImpl @Inject constructor() :

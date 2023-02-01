@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.salihkinali.gameguide.databinding.FragmentHomeBinding
-import com.salihkinali.gameguide.ui.common.UiResponseState
-import com.salihkinali.gameguide.utility.visible
+import com.salihkinali.ui.common.UiResponseState
+import com.salihkinali.ui.extension.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

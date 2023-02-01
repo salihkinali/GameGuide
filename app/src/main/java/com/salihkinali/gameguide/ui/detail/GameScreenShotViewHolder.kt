@@ -2,9 +2,9 @@ package com.salihkinali.gameguide.ui.detail
 
 import android.view.ViewGroup
 import com.salihkinali.gameguide.databinding.AppScreenshotsItemBinding
-import com.salihkinali.gameguide.ui.base.BaseViewHolder
-import com.salihkinali.gameguide.utility.downloadImage
-import com.salihkinali.gameguide.utility.inflateBinding
+import com.salihkinali.ui.base.BaseViewHolder
+import com.salihkinali.ui.extension.downloadImage
+import com.salihkinali.ui.extension.inflateBinding
 
 class GameScreenShotViewHolder(private val binding: AppScreenshotsItemBinding) :
     BaseViewHolder<GameScreenShotUiData>(binding.root) {

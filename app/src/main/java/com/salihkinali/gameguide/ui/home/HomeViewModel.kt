@@ -4,11 +4,11 @@ package com.salihkinali.gameguide.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.salihkinali.gameguide.R
-import com.salihkinali.gameguide.data.NetworkResponse
-import com.salihkinali.gameguide.data.mapper.GameListMapper
-import com.salihkinali.gameguide.domain.entity.TotalGameEntity
-import com.salihkinali.gameguide.domain.usecase.GetTotalGameUseCase
-import com.salihkinali.gameguide.ui.common.UiResponseState
+import com.salihkinali.common.NetworkResponse
+import com.salihkinali.common.mapper.GameListMapper
+import com.salihkinali.domain.entity.TotalGameEntity
+import com.salihkinali.domain.usecase.GetTotalGameUseCase
+import com.salihkinali.ui.common.UiResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -22,7 +22,8 @@ class HomeViewModel @Inject constructor(
     private val gameListMapper: GameListMapper<TotalGameEntity, TotalGameUiData>
 ) : ViewModel() {
 
-    private val _homeUiData = MutableStateFlow<UiResponseState<List<TotalGameUiData>>>(UiResponseState.Loading)
+    private val _homeUiData = MutableStateFlow<UiResponseState<List<TotalGameUiData>>>(
+        UiResponseState.Loading)
     val homeUidata = _homeUiData.asStateFlow()
 
     init {

@@ -1,7 +1,7 @@
 package com.salihkinali.gameguide.ui.home
 
 import android.view.ViewGroup
-import com.salihkinali.gameguide.ui.base.BaseRecyclerAdapter
+import com.salihkinali.ui.base.BaseRecyclerAdapter
 
 class HomeAdapter(private val itemClickListener: ((Int) -> Unit)?) : BaseRecyclerAdapter<TotalGameUiData, GameViewHolder>() {
 

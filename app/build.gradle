@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace 'com.salihkinali.gameguide'
-    compileSdk 32
+    compileSdk 33
 
     buildFeatures {
         viewBinding true
@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId "com.salihkinali.gameguide"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -27,8 +27,7 @@ android {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
-        buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
-        buildConfigField "String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\""
+
     }
 
     buildTypes {
@@ -47,6 +46,13 @@ android {
 }
 
 dependencies {
+
+    implementation project(path:':core:ui')
+    implementation project(path:':core:domain')
+    implementation project(path:':core:common')
+    implementation project(path:':core:data')
+    implementation project(path:':feature:home')
+    implementation project(path:':feature:detail')
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'

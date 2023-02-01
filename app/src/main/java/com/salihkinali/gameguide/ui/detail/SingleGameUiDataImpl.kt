@@ -1,7 +1,7 @@
 package com.salihkinali.gameguide.ui.detail
 
-import com.salihkinali.gameguide.data.mapper.GameMapper
-import com.salihkinali.gameguide.domain.entity.SingleGameEntity
+import com.salihkinali.common.mapper.GameMapper
+import com.salihkinali.domain.entity.SingleGameEntity
 import javax.inject.Inject
 
 
