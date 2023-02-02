@@ -1,6 +1,14 @@
 <h1 align="center">GameGuide</h1>
 This application is a game promotion application. It has been designed in accordance with the understanding of clean architecture.
 
+
+## App Architecture
+<p align="center">
+<img src="/previews/screenshot_one" width="%15"/>
+<img src="/previews/screenshot_two" width="%15"/>
+<img src="/previews/screenshot_three" width="%15"/>
+<img src="/previews/screenshot_four" width="%15"/>
+</p>
 ## App Architecture
 <p align="center">
 <img src="/previews/clean_architecture.png" />

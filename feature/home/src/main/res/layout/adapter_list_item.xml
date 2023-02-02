@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#0E97A9"
-        android:padding="5dp"
         android:orientation="horizontal">
 
         <com.google.android.material.card.MaterialCardView
@@ -21,7 +20,7 @@
             android:layout_height="150dp"
             android:layout_weight="0.70"
             android:layout_marginEnd="5dp"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="5dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/gameImage"

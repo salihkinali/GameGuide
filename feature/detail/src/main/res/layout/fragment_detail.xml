@@ -13,6 +13,7 @@
         android:id="@+id/detailImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:scaleType="fitXY"
         android:layout_weight="0.6"
         tools:background="@color/black" />
@@ -75,6 +76,7 @@
             <TextView
                 android:id="@+id/releasedText"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
