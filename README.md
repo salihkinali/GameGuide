@@ -4,10 +4,10 @@ This application is a game promotion application. It has been designed in accord
 ## App ScreenShots
 
 <p align="center">
-<img src="/previews/screenshot_one" width="20%"/>
-<img src="/previews/screenshot_two" width="20%"/>
-<img src="/previews/screenshot_three" width="20%"/>
-<img src="/previews/screenshot_four" width="20%"/>
+<img src="/previews/screenshot_one.png" width="20%"/>
+<img src="/previews/screenshot_two.png" width="20%"/>
+<img src="/previews/screenshot_three.png" width="20%"/>
+<img src="/previews/screenshot_four.png" width="20%"/>
 </p>
 
 ## App Architecture
