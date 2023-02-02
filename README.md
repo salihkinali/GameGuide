@@ -1,9 +1,24 @@
 <h1 align="center">GameGuide</h1>
-This application has been developed in accordance with the Android Architectural Architecture using the Android jetpack libraries.
+This application is a game promotion application. It has been designed in accordance with the understanding of clean architecture.
 
-## App Screenshots
+## App Architecture
 <p align="center">
-<img src="/previews/clean_arch.png" />
+<img src="/previews/clean_architecture.png" />
+What is a USE CASE & Why do we need them ?
+
+In MVVM, we use to put all our business logic into our ViewModels but the problem with that is, the bigger your project gets,
+the more number of ViewModels you have and all your business logic is divided into various viewModels.
+That’s where clean architecture comes into the picture, we use USE CASES instead of ViewModels for all our Business logic.
+
+<img src="/previews/layers.png" />
+<img src="/previews/usecase.png" />
+
+Use case is an action we can do within a feature. For example, We have feature called “Profile” which can have actions such as
+- Getting user profile data
+- Updating user profile photo
+- Editing user profile
+All the above are USE CASES of a feature.
+
 </p>
 
 ## Tech stack & Open-source Libraries
