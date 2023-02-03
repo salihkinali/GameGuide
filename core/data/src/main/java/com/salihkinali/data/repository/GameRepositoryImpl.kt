@@ -12,9 +12,11 @@ import com.salihkinali.domain.entity.GameScreenShotEntity
 import com.salihkinali.domain.entity.SingleGameEntity
 import com.salihkinali.domain.entity.TotalGameEntity
 import com.salihkinali.domain.repository.GameRepository
+import com.salihkinali.mapResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class GameRepositoryImpl @Inject constructor(
@@ -24,44 +26,18 @@ class GameRepositoryImpl @Inject constructor(
     private val gameMapper: GameMapper<SingleGameResponse, SingleGameEntity>,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : GameRepository {
-    override suspend fun getTotalGameInfo(): NetworkResponse<List<TotalGameEntity>> =
-
-        withContext(ioDispatcher) {
-            when (val response = remoteDataSource.getTotalGameInfo()) {
-
-                is NetworkResponse.Success -> {
-                    NetworkResponse.Success(gameListMapper.map(response.result))
-                }
-                is NetworkResponse.Error -> NetworkResponse.Error(response.exception)
-
-                NetworkResponse.Loading -> NetworkResponse.Loading
-            }
+    override  fun getTotalGameInfo(): Flow<NetworkResponse<List<TotalGameEntity>>> =
+        remoteDataSource.getTotalGameInfo().map {data->
+          data.mapResponse { gameListMapper.map(this) }
         }
 
-    override suspend fun getSingleGameInfo(id: Int): NetworkResponse<SingleGameEntity> =
-        withContext(ioDispatcher) {
-
-            when (val response = remoteDataSource.getSingleCharacter(id)) {
-
-                 NetworkResponse.Loading -> NetworkResponse.Loading
-                is NetworkResponse.Error -> NetworkResponse.Error(response.exception)
-                is NetworkResponse.Success -> NetworkResponse.Success(gameMapper.map(response.result))
-
-            }
+    override  fun getSingleGameInfo(id: Int): Flow<NetworkResponse<SingleGameEntity>> =
+        remoteDataSource.getSingleCharacter(id).map {data->
+            data.mapResponse { gameMapper.map(this) }
         }
-
-    override suspend fun getGameScreenShots(id: Int): NetworkResponse<List<GameScreenShotEntity>> =
-
-        withContext(ioDispatcher) {
-           when (val response = remoteDataSource.getGameScreenShots(id)) {
-
-                is NetworkResponse.Success -> {
-                    NetworkResponse.Success(gameScMapper.map(response.result))
-                }
-                is NetworkResponse.Error -> NetworkResponse.Error(response.exception)
-
-                NetworkResponse.Loading -> NetworkResponse.Loading
-            }
+    override  fun getGameScreenShots(id: Int): Flow<NetworkResponse<List<GameScreenShotEntity>>> =
+        remoteDataSource.getGameScreenShots(id).map {data->
+            data.mapResponse { gameScMapper.map(this) }
         }
 
 }
