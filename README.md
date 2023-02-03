@@ -51,7 +51,7 @@ Testing also offers the following advantages:
 - Stable development velocity, helping you minimize technical debt.
 
 
-<img src="/previews/android-testing.png" />
+<img src="/previews/android-test.png" />
 
 ## Tech stack & Open-source Libraries
 
