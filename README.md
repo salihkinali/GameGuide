@@ -36,6 +36,23 @@ which can have actions such as
 
 </p>
 
+## Unit & Ui Testing
+Unit and UI tests will be included in the project soon.
+
+Testing your app is an integral part of the app development process. By running tests against your
+app consistently, you can verify your app's correctness, functional behavior, and usability before 
+you release it publicly.
+
+Testing also offers the following advantages:
+
+- Rapid feedback on failures.
+- Early failure detection in the development cycle.
+- Safer code refactoring, allowing you to optimize code without worrying about regressions.
+- Stable development velocity, helping you minimize technical debt.
+
+
+<img src="/previews/android-testing.png" />
+
 ## Tech stack & Open-source Libraries
 
 - Minimum SDK level 21
