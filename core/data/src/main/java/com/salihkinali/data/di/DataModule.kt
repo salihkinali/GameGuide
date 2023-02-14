@@ -4,9 +4,9 @@ import com.salihkinali.common.mapper.GameListMapper
 import com.salihkinali.common.mapper.GameMapper
 import com.salihkinali.data.dto.detail.SingleGameResponse
 import com.salihkinali.data.dto.detail.screenshots.GameResult
-import com.salihkinali.data.mapper.GameScMapperImpl
-import com.salihkinali.data.mapper.SingleGameMapperImpl
-import com.salihkinali.data.mapper.TotalEntityMapperImpl
+import com.salihkinali.data.mapper.GameScreenShotMapper
+import com.salihkinali.data.mapper.SingleGameMapper
+import com.salihkinali.data.mapper.TotalEntityMapper
 import com.salihkinali.domain.entity.GameScreenShotEntity
 import com.salihkinali.domain.entity.SingleGameEntity
 import com.salihkinali.domain.entity.TotalGameEntity
@@ -25,27 +25,17 @@ abstract class GameMapperModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindSingleMapper(singleMapperImpl: SingleGameMapperImpl): GameMapper<SingleGameResponse, SingleGameEntity>
+    abstract fun bindSingleMapper(singleMapperImpl: SingleGameMapper): GameMapper<SingleGameResponse, SingleGameEntity>
 
-//    @Binds
-//    @ViewModelScoped
-//    abstract fun bindGameScreenShotMapper(gameScreenShotUiMapperImpl: GameScreenShotUiMapperImpl):
-//            GameListMapper<GameScreenShotEntity, GameScreenShotUiData>
-
-//    @Binds
-//    @ViewModelScoped
-//    abstract fun bindSingleUiMapper(singleGameUiDataImpl: SingleGameUiDataImpl): GameMapper<SingleGameEntity, SingleGameUiData>
 
    @Binds
    @ViewModelScoped
-    abstract fun bindGameMapper(totalEntityMapperImpl: TotalEntityMapperImpl): GameListMapper<Result, TotalGameEntity>
+    abstract fun bindGameMapper(totalEntityMapperImpl: TotalEntityMapper): GameListMapper<Result, TotalGameEntity>
 
-    // @Binds
-   // @ViewModelScoped
-   // abstract fun bindTotalGameUiData(totalGameUiDataImpl: TotalGameUiMapperImpl): GameListMapper<TotalGameEntity, TotalGameUiData>
+
 
     @Binds
     @ViewModelScoped
-    abstract fun bindGameScMapper(gameScMapperImpl: GameScMapperImpl): GameListMapper<GameResult, GameScreenShotEntity>
+    abstract fun bindGameScMapper(gameScMapperImpl: GameScreenShotMapper): GameListMapper<GameResult, GameScreenShotEntity>
 
 }

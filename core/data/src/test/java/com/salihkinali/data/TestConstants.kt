@@ -3,7 +3,9 @@ package com.salihkinali.data
 import androidx.annotation.VisibleForTesting
 import com.salihkinali.data.dto.detail.SingleGameResponse
 import com.salihkinali.data.dto.detail.screenshots.GameResult
+import com.salihkinali.data.dto.detail.screenshots.SingleGameScreenShotResponse
 import com.salihkinali.data.dto.game.Result
+import com.salihkinali.data.dto.game.TotalGameResponse
 import com.salihkinali.domain.entity.GameScreenShotEntity
 import com.salihkinali.domain.entity.SingleGameEntity
 import com.salihkinali.domain.entity.TotalGameEntity
@@ -151,4 +153,32 @@ val gameScreenShot = GameResult(
 
 @VisibleForTesting
 val gameScreenShots = listOf(gameScreenShot)
+
+@VisibleForTesting
+val totalGameResponse = TotalGameResponse(
+    count = null,
+    description = null,
+    filters = null,
+    next = null,
+    nofollow = false,
+    nofollowCollections = null,
+    noindex = false,
+    previous = null,
+    results = gameResults,
+    seoDescription = null,
+    seoH1 = null,
+    seoKeywords = null,
+    seoTitle = null
+)
+
+@VisibleForTesting
+val singleGameItemResponse = singleGameResponse
+
+@VisibleForTesting
+val gameScResponse = SingleGameScreenShotResponse(
+    count = null,
+    next = null,
+    previous = null,
+    results = gameScreenShots
+)
 

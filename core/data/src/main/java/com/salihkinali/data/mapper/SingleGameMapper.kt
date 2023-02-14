@@ -5,7 +5,7 @@ import com.salihkinali.data.dto.detail.SingleGameResponse
 import com.salihkinali.domain.entity.SingleGameEntity
 import javax.inject.Inject
 
-class SingleGameMapperImpl @Inject constructor() :
+class SingleGameMapper @Inject constructor() :
     GameMapper<SingleGameResponse, SingleGameEntity> {
     override fun map(input: SingleGameResponse): SingleGameEntity {
         return SingleGameEntity(

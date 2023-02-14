@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.Test
 
 class SingleGameMapperTest {
-    private val singleGameMapper = SingleGameMapperImpl()
+    private val singleGameMapper = SingleGameMapper()
     private lateinit var singleGameEntity: SingleGameEntity
 
     @Before

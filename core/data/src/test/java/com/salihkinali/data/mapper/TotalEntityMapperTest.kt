@@ -8,7 +8,7 @@ import org.junit.Test
 
 class TotalEntityMapperTest {
 
-    private val totalGameMapper = TotalEntityMapperImpl()
+    private val totalGameMapper = TotalEntityMapper()
 
     private lateinit var totalGameEntities: List<TotalGameEntity>
 

@@ -5,7 +5,7 @@ import com.salihkinali.domain.entity.TotalGameEntity
 import javax.inject.Inject
 import com.salihkinali.data.dto.game.Result
 
-class TotalEntityMapperImpl @Inject constructor() : GameListMapper<Result, TotalGameEntity> {
+class TotalEntityMapper @Inject constructor() : GameListMapper<Result, TotalGameEntity> {
     override fun map(input: List<Result>?): List<TotalGameEntity> {
         return input?.map {
             TotalGameEntity(

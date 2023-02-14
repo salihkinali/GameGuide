@@ -8,7 +8,7 @@ import org.junit.Test
 
 class GameScreenShotMapperTest {
 
-    private val gameScreenShotMapper = GameScMapperImpl()
+    private val gameScreenShotMapper = GameScreenShotMapper()
     private lateinit var gameScreenShotList: List<GameScreenShotEntity>
 
     @Before
