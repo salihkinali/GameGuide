@@ -1,6 +1,9 @@
 package com.salihkinali.data
 
 import androidx.annotation.VisibleForTesting
+import com.salihkinali.data.dto.detail.SingleGameResponse
+import com.salihkinali.data.dto.detail.screenshots.GameResult
+import com.salihkinali.data.dto.game.Result
 import com.salihkinali.domain.entity.GameScreenShotEntity
 import com.salihkinali.domain.entity.SingleGameEntity
 import com.salihkinali.domain.entity.TotalGameEntity
@@ -22,27 +25,76 @@ val totalGameEntity = TotalGameEntity(
 @VisibleForTesting
 val totalGameEntities = listOf(totalGameEntity)
 
+
+@VisibleForTesting
+val singleGameResponse = SingleGameResponse(
+    achievementsCount = null,
+    added = null,
+    addedByStatus = null,
+    additionsCount = null,
+    alternativeNames = null,
+    backgroundImage = "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+    backgroundImageAdditional = null,
+    clip = null,
+    creatorsCount = null,
+    description = "Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos",
+    descriptionRaw = null,
+    developers = null,
+    dominantColor = null,
+    esrbRating = null,
+    gameSeriesCount = null,
+    genres = null,
+    id = 3498,
+    metacritic = null,
+    metacriticPlatforms = null,
+    metacriticUrl = null,
+    moviesCount = null,
+    name = "Grand Theft Auto V",
+    nameOriginal = null,
+    parentAchievementsCount = null,
+    parentPlatforms = null,
+    parentsCount = null,
+    platforms = null,
+    playtime = null,
+    publishers = null,
+    rating = null,
+    ratingTop = 5,
+    ratings = null,
+    ratingsCount = null,
+    reactions = null,
+    redditCount = null,
+    redditDescription = null,
+    redditLogo = null,
+    redditName = null,
+    redditUrl = "https://www.reddit.com/r/GrandTheftAutoV/",
+    released = "2013-09-17",
+    reviewsCount = null,
+    reviewsTextCount = null,
+    saturatedColor = null,
+    screenshotsCount = 57,
+    slug = "grand-theft-auto-v",
+    stores = null,
+    suggestionsCount = null,
+    tags = null,
+    tba = null,
+    twitchCount = null,
+    updated = null,
+    userGame = null,
+    website = "http://www.rockstargames.com/V/",
+    youtubeCount = null
+)
+
 @VisibleForTesting
 val singleGameEntity = SingleGameEntity(
     id = 3498,
     name = "Grand Theft Auto V",
     released = "2013-09-17",
     backgroundImage = "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-    description = "<p>Rockstar Games went bigger, since their previous installment of the series." +
-            " You get the complicated and realistic world-building from Liberty City of GTA4 in the" +
-            " setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas." +
-            " 561 different vehicles (including every transport you can operate) and the amount is " +
-            "rising with every update. <br />\nSimultaneous storytelling from three unique " +
-            "perspectives: <br />\nFollow Michael, ex-criminal living his life of leisure away from " +
-            "the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael" +
-            " is trying to run away from. <br />\nGTA Online will provide a lot of additional challenge" +
-            " even for the experienced players, coming fresh from the story mode. Now you will have other" +
-            " players around that can help you just as likely as ruin your mission. Every GTA mechanic up " +
-            "to date can be experienced by players through the unique customizable character, and" +
-            " community content paired with the leveling system tends to keep everyone busy and engaged.</p>",
+    description = "Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos",
     website = "http://www.rockstargames.com/V/",
     ratingTop = 5
 )
+
 
 @VisibleForTesting
 val gameScreenShotEntity = GameScreenShotEntity(
@@ -51,3 +103,52 @@ val gameScreenShotEntity = GameScreenShotEntity(
 
 @VisibleForTesting
 val gameScreenShotEntities = listOf(gameScreenShotEntity)
+
+@VisibleForTesting
+val result = Result(
+    added = null,
+    addedByStatus = null,
+    backgroundImage = "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+    clip = null,
+    dominantColor = null,
+    esrbRating = null,
+    genres = null,
+    id = 3498,
+    metacritic = null,
+    name = "Grand Theft Auto V",
+    parentPlatforms = null,
+    platforms = null,
+    playtime = null,
+    rating = 4.47,
+    ratingTop = 5,
+    ratings = null,
+    ratingsCount = null,
+    released = "2013-09-17",
+    reviewsCount = null,
+    reviewsTextCount = null,
+    saturatedColor = "0f0f0f",
+    shortScreenshots = null,
+    slug = null,
+    stores = null,
+    suggestionsCount = null,
+    tags = null,
+    tba = false,
+    updated = "2023-02-02T07:58:58",
+    userGame = null
+)
+
+@VisibleForTesting
+val gameResults = listOf(result)
+
+@VisibleForTesting
+val gameScreenShot = GameResult(
+    height = null,
+    id = null,
+    image = "https://media.rawg.io/media/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg",
+    isDeleted = false,
+    width = null
+)
+
+@VisibleForTesting
+val gameScreenShots = listOf(gameScreenShot)
+
