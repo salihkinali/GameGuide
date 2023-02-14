@@ -172,9 +172,6 @@ val totalGameResponse = TotalGameResponse(
 )
 
 @VisibleForTesting
-val singleGameItemResponse = singleGameResponse
-
-@VisibleForTesting
 val gameScResponse = SingleGameScreenShotResponse(
     count = null,
     next = null,
