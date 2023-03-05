@@ -37,7 +37,7 @@ which can have actions such as
 </p>
 
 ## Unit & Ui Testing
-Unit and UI tests will be included in the project soon.
+Unit tests added into data and domain module.
 
 Testing your app is an integral part of the app development process. By running tests against your
 app consistently, you can verify your app's correctness, functional behavior, and usability before 
